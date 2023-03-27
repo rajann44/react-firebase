@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import ReactStars from "react-stars";
 import { FallingLines } from "react-loader-spinner";
 import { moviesTable } from "../database/firebase";
-import { doc, getDocs } from "firebase/firestore";
+import { getDocs } from "firebase/firestore";
 import { Link } from "react-router-dom";
 
 const Card = () => {
@@ -32,12 +32,9 @@ const Card = () => {
       ) : (
         moviesInfo.map((movie, index) => {
           return (
-            <Link to={`/detail/${movie.id}`}>
-              <div
-                className="bg-stone-900 p-2 hover:-translate-y-2 cursor-pointer mt-2 transition-all duration-300"
-                key={index}
-              >
-                <img className="h-80" src={movie.image}></img>
+            <Link to={`/detail/${movie.id}`} key={index}>
+              <div className="bg-stone-900 p-2 hover:-translate-y-2 cursor-pointer mt-2 transition-all duration-300">
+                <img className="h-80" src={movie.image} alt={movie.title}></img>
                 <h1>
                   <span className="text-red-300 font-bold">Name: </span>
                   {movie.title}
@@ -47,7 +44,7 @@ const Card = () => {
                   <ReactStars
                     size={20}
                     half={true}
-                    value={movie.rating}
+                    value={movie.rating / movie.usersRated}
                     edit={false}
                   />
                 </div>

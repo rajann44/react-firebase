@@ -24,6 +24,7 @@ const AddMovie = () => {
         timer: 3000,
         showConfirmButton: false,
       });
+      setForm({ title: "", year: "", description: "", image: "" });
     } catch (error) {
       Swal.fire({
         title: "Error!",

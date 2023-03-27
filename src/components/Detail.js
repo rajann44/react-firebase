@@ -4,6 +4,7 @@ import { Dna } from "react-loader-spinner";
 import { useParams } from "react-router-dom";
 import { doc, getDoc } from "firebase/firestore";
 import { fireDB } from "../database/firebase";
+import Reviews from "./Reviews";
 
 const Detail = () => {
   const { id } = useParams();
@@ -12,6 +13,8 @@ const Detail = () => {
     year: "",
     description: "",
     image: "",
+    rating: 0,
+    usersRated: 0,
   });
 
   const [loading, setLoading] = useState(false);
@@ -40,7 +43,11 @@ const Detail = () => {
         />
       ) : (
         <>
-          <img className="h-96 md:sticky top-24" src={movieInfo.image}></img>
+          <img
+            className="h-96 md:sticky top-24"
+            src={movieInfo.image}
+            alt={movieInfo.title}
+          ></img>
           <div className="md:ml-4 ml-0 md:w-1/2 w-full mt-2">
             <h1 className="text-3xl font-bold text-gray-300">
               {movieInfo.title}{" "}
@@ -50,10 +57,15 @@ const Detail = () => {
               className="mt-2"
               size={20}
               half={true}
-              value={4.5}
+              value={movieInfo.rating / movieInfo.usersRated}
               edit={false}
             />
             <p className="mt-2">{movieInfo.description}</p>
+            <Reviews
+              id={id}
+              currentRating={movieInfo.rating}
+              usersRated={movieInfo.usersRated}
+            ></Reviews>
           </div>
         </>
       )}

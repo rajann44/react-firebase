@@ -17,5 +17,7 @@ export const fireDB = getFirestore(app);
 
 //Movies Table
 export const moviesTable = collection(fireDB, "movies");
+//Reviews Table
+export const reviewsTable = collection(fireDB, "reviews");
 
 export default app;
