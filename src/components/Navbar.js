@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 const Navbar = () => {
   return (
-    <div className="flex justify-between items-center text-3xl font-bold p-3 border-b-2 border-gray-500 bg-slate-900">
+    <div className="sticky top-0 z-10 flex justify-between items-center text-3xl font-bold p-3 border-b-2 border-gray-500 bg-slate-900">
       <Link to={"/"}>
         <span>
           Film<span className="text-red-500">Frenzy</span>
