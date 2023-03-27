@@ -14,7 +14,7 @@ const Detail = () => {
     description: "",
     image: "",
     rating: 0,
-    usersRated: 0,
+    rated: 0,
   });
 
   const [loading, setLoading] = useState(false);
@@ -57,14 +57,14 @@ const Detail = () => {
               className="mt-2"
               size={20}
               half={true}
-              value={movieInfo.rating / movieInfo.usersRated}
+              value={movieInfo.rating / movieInfo.rated}
               edit={false}
             />
             <p className="mt-2">{movieInfo.description}</p>
             <Reviews
               id={id}
               currentRating={movieInfo.rating}
-              usersRated={movieInfo.usersRated}
+              usersRated={movieInfo.rated}
             ></Reviews>
           </div>
         </>
