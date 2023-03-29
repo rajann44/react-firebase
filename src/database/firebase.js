@@ -2,7 +2,7 @@ import { initializeApp } from "firebase/app";
 import { getFirestore, collection } from "firebase/firestore";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyAtXsKjM06UVEZSnHWz-YglxDaK8X7sz9U",
+  apiKey: process.env.FIREBASE_APIKEY,
   authDomain: "filmfrenzy-rajann44.firebaseapp.com",
   projectId: "filmfrenzy-rajann44",
   storageBucket: "filmfrenzy-rajann44.appspot.com",
